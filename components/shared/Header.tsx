@@ -1,20 +1,24 @@
-type Props = {
-  planet: any;
-};
+import Image from "next/image";
+import logoImg from "@/assets/logo/logo.png";
 
-export default function Header({ planet }: Props) {
+export default function Header() {
   return (
-    <div className="text-center mt-6 space-y-3">
-      <h1 className="text-2xl md:text-3xl font-bold">
-        {planet?.name}
-      </h1>
-
-      <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm text-gray-300">
-        <p>GALAXY<br />{planet?.galaxy}</p>
-        <p>DIAMETER<br />{planet?.diameter}</p>
-        <p>LENGTH OF DAY<br />{planet?.day}</p>
-        <p>AVG TEMP<br />{planet?.temp}</p>
+    <header className="relative z-20 flex items-center justify-center px-6 py-5 md:px-14">
+      <div className="flex items-center gap-3">
+        <Image
+          src={logoImg}
+          alt="Planetrix Logo"
+          width={34}
+          height={34}
+          className="h-8 w-8 object-contain"
+          priority
+        />
+        <div className="text-lg font-semibold tracking-[0.35em] text-white/90">
+          PLANETRIX
+        </div>
       </div>
-    </div>
+    </header>
   );
 }
+
+ 

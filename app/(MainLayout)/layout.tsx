@@ -8,6 +8,7 @@ import { fontSans } from "@/config/fonts";
 
 
 import { Providers } from "../providers";
+import Footer from "@/components/shared/Footer";
  
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function RootLayout({
        <div className="h-screen w-full overflow-hidden bg-[#0B1220] text-white flex flex-col">
        
             <main className="    flex-grow">{children}</main>
+            <Footer/>
           </div>
         </Providers>
       </body>
