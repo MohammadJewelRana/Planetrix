@@ -6,9 +6,9 @@ import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 
-import Footer from "@/components/shared/Footer";
-import { Navbar } from "@/components/shared/Navbar";
+
 import { Providers } from "../providers";
+ 
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +43,8 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+       <div className="h-screen w-full overflow-hidden bg-[#0B1220] text-white flex flex-col">
+       
             <main className="    flex-grow">{children}</main>
           </div>
         </Providers>
