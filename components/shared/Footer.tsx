@@ -7,42 +7,44 @@ export default function Footer() {
   return (
     <footer className="relative z-20 w-full">
 
-      {/* FULL WIDTH GLASS STRIP */}
+      {/* GLASS BAR */}
       <div className="w-full border-t border-white/10 bg-white/[0.04] backdrop-blur-xl">
 
-        <div className="mx-auto max-w-7xl px-6 py-6 md:px-12">
+        <div className="mx-auto max-w-7xl px-4 py-4 md:px-12 md:py-6">
 
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="flex flex-col items-center gap-3 md:flex-row md:items-end md:justify-between md:gap-6">
 
-            {/* LEFT SIDE */}
-            <div className="max-w-md">
-              <div className="flex items-center gap-3">
+            {/* LEFT */}
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+
+              <div className="flex items-center gap-2">
                 <Image
                   src={footerLogo}
                   alt="Planetrix"
-                  width={30}
-                  height={30}
+                  width={26}
+                  height={26}
                 />
-                <span className="text-sm tracking-[0.25em] text-white font-semibold">
+                <span className="text-xs tracking-[0.2em] text-white font-semibold md:text-sm">
                   PLANETRIX
                 </span>
               </div>
 
-              {/* 🔥 DESCRIPTION (missing before) */}
-              <p className="mt-3 text-xs leading-5 text-white/60">
+              {/* ❌ hide on small */}
+              <p className="hidden md:block mt-3 text-xs leading-5 text-white/60 max-w-md">
                 Lorem ipsum dolor sit amet consectetur. Fusce sed aliquam amet 
-                curabitur eget quam. Tortor nam volutpat tincidunt nibh lacus vitae sed mi.
-                Viverra eu commodo sed sed commodo commodo urna sed.
+                curabitur eget quam.
               </p>
             </div>
 
-            {/* RIGHT SIDE */}
-            <div className="text-xs text-white/70 space-y-2 text-left md:text-right">
-              <div className="hover:text-white cursor-pointer">About Us</div>
-              <div className="hover:text-white cursor-pointer">Blog</div>
-              <div className="hover:text-white cursor-pointer">Career</div>
-              <div className="hover:text-white cursor-pointer">FAQ</div>
-              <div className="hover:text-white cursor-pointer">Contact Us</div>
+            {/* RIGHT */}
+            <div className="flex flex-wrap justify-center gap-3 text-[11px] text-white/70 md:flex-col md:items-end md:text-right md:gap-2">
+
+              <div className="hover:text-white cursor-pointer transition">About</div>
+              <div className="hover:text-white cursor-pointer transition">Blog</div>
+              <div className="hover:text-white cursor-pointer transition">Career</div>
+              <div className="hover:text-white cursor-pointer transition">FAQ</div>
+              <div className="hover:text-white cursor-pointer transition">Contact</div>
+
             </div>
 
           </div>
