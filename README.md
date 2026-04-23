@@ -1,24 +1,40 @@
-# Next.js & HeroUI Template
+# Planetrix – Interactive Solar System UI
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+This is a modern interactive solar system web application built using Next.js 14 (App Router) and HeroUI template. It provides a smooth, animated experience to explore planets with cinematic UI and responsive design.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+🌐 Live Demo: https://planetrix-sigma.vercel.app/  
+💻 GitHub Repo: https://github.com/MohammadJewelRana/Planetrix
+
+---
 
 ## Technologies Used
 
 - [Next.js 14](https://nextjs.org/docs/getting-started)
 - [HeroUI v2](https://heroui.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind Variants](https://tailwind-variants.org)
+
+---
+
+## Features
+
+- Interactive planet carousel (orbit-style UI)
+- Smooth animation using Framer Motion
+- Responsive design for mobile, tablet, and desktop
+- Realistic lighting and gradient shadow effects
+- Clean component-based architecture
+- Modern UI with Tailwind CSS
+
+---
 
 ## How to Use
 
-### Use the template with create-next-app
+### Clone the repository
 
-To create a new project based on this template using `create-next-app`, run the following command:
+```bash
+git clone https://github.com/MohammadJewelRana/Planetrix.git
 
 ```bash
 npx create-next-app -e https://github.com/heroui-inc/next-app-template
@@ -32,22 +48,4 @@ You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
 npm install
 ```
 
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+ 
