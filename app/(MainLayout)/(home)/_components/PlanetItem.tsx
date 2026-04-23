@@ -70,37 +70,31 @@ const PlanetItem = ({
         />
       )}
 
-      {/* side shadow */}
-     {!isActive && (
-  <div className="absolute inset-0 rounded-full overflow-hidden">
 
-    {/* soft dark fade */}
-    <div
-      className={`
-        absolute inset-0
-        ${
-          isPrev
-            ? "bg-gradient-to-r from-[#020617]/80 via-[#020617]/40 to-transparent"
-            : "bg-gradient-to-l from-[#020617]/80 via-[#020617]/40 to-transparent"
-        }
-      `}
-    />
+      {/*  PLANET NAME */}
+      {!isActive && (
+        <div
+          className={`
+      absolute 
+      text-white/70 uppercase tracking-[0.3em]
+      text-[10px] md:text-xs lg:text-sm
+      whitespace-nowrap
 
-    {/* edge blur mask (IMPORTANT) */}
-    <div
-      className={`
-        absolute inset-0
-        ${
-          isPrev
-            ? "bg-[radial-gradient(circle_at_right,transparent_55%,#020617_85%)]"
-            : "bg-[radial-gradient(circle_at_left,transparent_55%,#020617_85%)]"
-        }
-        opacity-70
-      `}
-    />
+      /* ✅ DESKTOP FIX */
+      ${isPrev ? "right-0 translate-x-full pl-3" : ""}
+      ${isNext ? "left-0 -translate-x-full pr-3" : ""}
 
-  </div>
-)}
+      top-1/2 -translate-y-1/2
+
+      /* 📱 MOBILE */
+      max-sm:top-full max-sm:left-1/2 
+      max-sm:-translate-x-1/2 max-sm:translate-y-2
+      max-sm:pl-0 max-sm:pr-0 max-sm:text-center
+    `}
+        >
+          {planet.name}
+        </div>
+      )}
     </motion.button>
   );
 };
