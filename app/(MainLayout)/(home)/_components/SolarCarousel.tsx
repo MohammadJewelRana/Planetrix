@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import Footer from '@/components/shared/Footer';
-import { planets } from '@/app/data/planet';
-import Header from '@/components/shared/Header';
+import Image from "next/image";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Footer from "@/components/shared/Footer";
+import { planets } from "@/app/data/planet";
+import Header from "@/components/shared/Header";
 
 export default function SolarCarousel() {
   const [active, setActive] = useState(0);
@@ -25,7 +25,7 @@ export default function SolarCarousel() {
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <Image
             src={activePlanet.bgImage}
@@ -36,9 +36,9 @@ export default function SolarCarousel() {
           />
         </motion.div>
       </AnimatePresence>
-<div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,22,0.01)_0%,rgba(15,22,40,0.12)_35%,rgba(20,29,51,0.24)_72%,rgba(5,10,22,0.62)_100%)]" />
-<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(29,41,72,0.04)_0%,rgba(15,22,40,0.08)_42%,rgba(5,10,22,0.36)_100%)]" />
 
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,22,0.01)_0%,rgba(15,22,40,0.12)_35%,rgba(20,29,51,0.24)_72%,rgba(5,10,22,0.62)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(29,41,72,0.04)_0%,rgba(15,22,40,0.08)_42%,rgba(5,10,22,0.36)_100%)]" />
 
       <Header />
 
@@ -86,47 +86,67 @@ export default function SolarCarousel() {
           </div>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-7xl flex-1 items-center justify-center px-6">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="absolute h-[540px] w-[540px] rounded-full border border-white/8" />
-            <div className="absolute h-[430px] w-[430px] rounded-full border border-white/8" />
-            <div className="absolute h-[320px] w-[320px] rounded-full border border-white/8" />
-            <div className="absolute h-[210px] w-[210px] rounded-full border border-white/8" />
-          </div>
-
+        <div className="relative flex w-full flex-1 items-center justify-center  ">
           {visible.map((index) => {
             const planet = planets[index];
             const isActive = index === active;
             const isPrev = index === prev;
+            const isNext = index === next;
 
             return (
               <motion.button
                 key={planet.name}
                 onClick={() => setActive(index)}
-                className="absolute left-1/2 top-1/2"
+                className={`
+          absolute top-1/2
+          ${isActive ? "left-1/2" : ""}
+          ${isPrev ? "left-0" : ""}
+          ${isNext ? "right-0" : ""}
+        `}
                 initial={false}
                 animate={{
-                  x: isActive ? '-50%' : isPrev ? '-175%' : '85%',
-                  y: isActive ? '-50%' : isPrev ? '-22%' : '-18%',
-                  scale: isActive ? 1 : 0.38,
-                  opacity: isActive ? 1 : 0.55,
+                  x: isActive
+                    ? "-50%"
+                    : isPrev
+                      ? "-30%" // 🔥 left আরও বাইরে
+                      : "30%", // 🔥 right আরও বাইরে
+                  y: isActive ? "-70%" : "-40%",
+                  scale: isActive ? 1 : 0.8,
+                  opacity: isActive ? 1 : 0.9,
                   zIndex: isActive ? 30 : 10,
-                  filter: isActive ? 'blur(0px)' : 'blur(1px)',
                 }}
-                transition={{ type: 'spring', stiffness: 110, damping: 20 }}
+                transition={{ type: "spring", stiffness: 110, damping: 20 }}
                 style={{
-                  width: isActive ? 360 : 170,
-                  height: isActive ? 360 : 170,
+                  width: isActive ? 280 : 150,
+                  height: isActive ? 280 : 150,
                 }}
               >
                 <Image
                   src={planet.planetImage}
                   alt={planet.name}
                   fill
-                  className="object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.12)]"
+                  className="object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.2)]"
                 />
+
+                {/* Center Glow */}
                 {isActive && (
-                  <div className="absolute inset-0 rounded-full shadow-[0_0_130px_rgba(255,120,0,0.42)]" />
+                  <div className="absolute inset-0 rounded-full  " />
+                )}
+
+                {/* Side Glow */}
+                {/* Side Shadow */}
+                {!isActive && (
+                  <div
+                    className={`
+      absolute inset-0 rounded-full
+      ${
+        isPrev
+          ? "bg-gradient-to-r from-[#020617] via-transparent to-transparent"
+          : "bg-gradient-to-l from-[#020617] via-transparent to-transparent"
+      }
+      opacity-70
+    `}
+                  />
                 )}
               </motion.button>
             );
