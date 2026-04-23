@@ -3,7 +3,7 @@
 import Image from "next/image";
 import footerLogo from "@/assets/logo/logo.png";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="relative z-20 w-full">
       {/* GLASS BAR */}
@@ -54,4 +54,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

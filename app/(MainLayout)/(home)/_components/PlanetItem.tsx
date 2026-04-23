@@ -65,24 +65,42 @@ const PlanetItem = ({
       {isActive && (
         <div
           className="absolute inset-0 rounded-full
-          bg-[radial-gradient(circle_at_40%_40%,rgba(255,180,120,0.25)_0%,rgba(255,180,120,0.1)_35%,transparent_70%)]
+          bg-[radial-gradient(circle_at_40%_40%,rgba(255,180,120,0.25)_0%,rgba(255,180,120,0.1)_35%,transparent_40%)]
         "
         />
       )}
 
       {/* side shadow */}
-      {!isActive && (
-        <div
-          className={`
-          absolute inset-0 rounded-full
-          ${
-            isPrev
-              ? "bg-gradient-to-r from-black/70 to-transparent"
-              : "bg-gradient-to-l from-black/70 to-transparent"
-          }
-        `}
-        />
-      )}
+     {!isActive && (
+  <div className="absolute inset-0 rounded-full overflow-hidden">
+
+    {/* soft dark fade */}
+    <div
+      className={`
+        absolute inset-0
+        ${
+          isPrev
+            ? "bg-gradient-to-r from-[#020617]/80 via-[#020617]/40 to-transparent"
+            : "bg-gradient-to-l from-[#020617]/80 via-[#020617]/40 to-transparent"
+        }
+      `}
+    />
+
+    {/* edge blur mask (IMPORTANT) */}
+    <div
+      className={`
+        absolute inset-0
+        ${
+          isPrev
+            ? "bg-[radial-gradient(circle_at_right,transparent_55%,#020617_85%)]"
+            : "bg-[radial-gradient(circle_at_left,transparent_55%,#020617_85%)]"
+        }
+        opacity-70
+      `}
+    />
+
+  </div>
+)}
     </motion.button>
   );
 };
